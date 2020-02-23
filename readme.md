@@ -2,7 +2,7 @@
 
 <p align="center">:rainbow: 基于高德开放平台的 PHP 天气信息组件。</p>
 
-[![Build Status](https://travis-ci.com/lucifer103/weather.svg?branch=master)](https://travis-ci.com/lucifer103/weather)
+[![Build Status](https://cdn.learnku.com/uploads/images/202002/23/25461/svCalGgjCt.svg)](https://travis-ci.com/lucifer103/weather) ![StyleCI build status](https://cdn.learnku.com/uploads/images/202002/23/25461/P0fOQ6CoP3.svg) 
 
 ## 安装
 
