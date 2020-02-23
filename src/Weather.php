@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the lucifer103/weather.
+ *
+ * (c) Lucifer <hug.m@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Lucifer103\Weather;
 
 use GuzzleHttp\Client;
@@ -9,6 +18,7 @@ use Lucifer103\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     private $key;
+
     private $guzzleOptions = [];
 
     public function __construct($key)
@@ -37,11 +47,11 @@ class Weather
 
         // 1. 对 $format 与 $type 进行参数检查，不在范围内的抛出异常
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format：' . $format);
+            throw new InvalidArgumentException('Invalid response format：'.$format);
         }
 
         if (!\in_array(\strtolower($type), \array_keys($types))) {
-            throw new InvalidArgumentException('Invalid type value（live / forecast）：' . $type);
+            throw new InvalidArgumentException('Invalid type value（live / forecast）：'.$type);
         }
 
         // 2. 封装 $query 参数，并对空值进行过滤
