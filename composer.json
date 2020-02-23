@@ -1,0 +1,29 @@
+{
+    "name": "lucifer103\/weather",
+    "description": "A weather SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lucifer103",
+            "email": "hug.m@foxmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "phpunit/phpunit": "^8.5",
+        "mockery/mockery": "^1.3",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lucifer103\\Weather\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lucifer103\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
