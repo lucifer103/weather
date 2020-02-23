@@ -24,7 +24,7 @@ $weather = new Weather($key);
 
 ### 获取实时天气
 ```php
-$response = $weather->getWeather('深圳');
+$response = $weather->getLiveWeather('深圳');
 ```
 示例：
 ```json
@@ -51,7 +51,7 @@ $response = $weather->getWeather('深圳');
 
 ### 获取近期天气预报
 ```php
-$response = $weather->getWeather('深圳', 'all');
+$response = $weather->getForecastsWeather('深圳');
 ```
 示例：
 ```json
@@ -122,9 +122,9 @@ $response = $weather->getWeather('深圳', 'all');
 ```
 
 ### 获取 XML 格式返回值
-第三个参数为返回值类型，可选 `json` 与 `xml`，默认 `json`：
+以上两个方法第二个参数为返回值类型，可选 `json` 与 `xml`，默认 `json`：
 ```
-$response = $weather->getWeather('深圳', 'all', 'xml');
+$response = $weather->getLiveWeather('深圳', 'xml');
 ```
 示例：
 ```xml
@@ -151,11 +151,11 @@ $response = $weather->getWeather('深圳', 'all', 'xml');
 
 ### 参数说明
 ```
-array|string getWeather(string $city, string $type = 'base', string $format = 'json')
+array | string   getLiveWeather(string $city, string $format = 'json')
+array | string   getForecastsWeather(string $city, string $format = 'json')
 ```
 
-> - `$city` - 城市名，比如：“深圳”；
-> - `$type` - 返回内容类型：`base`: 返回实况天气 / `all`: 返回预报天气；
+> - `$city` - 城市名 / [高德地址位置 adcode](https://lbs.amap.com/api/webservice/guide/api/district)，比如：“深圳” 或者（`adcode`：440300）；
 > - `$format` - 输出的数据格式，默认为 `json` 格式，当 `output` 设置为 `xml` 时，输出的为 `XML` 格式的数据。
 
 ### 在 Laravel 中使用
@@ -185,9 +185,9 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit(Weather $weather) 
+    public function show(Weather $weather) 
     {
-        $response = $weather->get('深圳');
+        $response = $weather->getLiveWeather('深圳');
     }
     .
     .
@@ -200,9 +200,9 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit() 
+    public function show() 
     {
-        $response = app('weather')->getWeather('深圳');
+        $response = app('weather')->getLiveWeather('深圳');
     }
     .
     .
